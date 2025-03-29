@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API FOR HEALTH INSURANCE PRICE PREDICTION</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+
+<body>
+    <div style = "color:blue">
+        <form action="{{url_for('predict')}}" method = "post">
+            <h2>HEALTH INSURANCE PRICE PREDICTION</h2>
+            <h3>What is the Age?</h3><br><input id="first" name="Age" required="required">
+            <h3>What is the BMI?</h3><br><input id="second" name="BMI" required="required">
+            <h3>How many children?</h3><br><input id="second" name="Children" required="required">
+            <h3>What is the sex?</h3><br><select name = "Sex" id = "sex" required="required">
+                <option value = "M">M</option>
+                <option value = "F">F</option>
+                </select>
+            <h3>Do you smoke?</h3><br><select name = "Smoker" id = "smoker" required="required">
+                <option value = "Yes"> Yes</option>
+                <option value = "No"> No</option>
+                </select>
+            <h3>What is the region?</h3><br><select name = "Region" id = "region" required="required">
+                <option value = "Northeast"> Northeast</option>
+                <option value = "Northwest"> Northwest</option>
+                <option value = "Southeast"> Southeast</option>
+                <option value = "Southwest"> Southwest</option>
+                </select>
+            
+            <br><br><button id='sub' type='submit'> Calculate the insurance price....
+            <br>
+      </form>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
